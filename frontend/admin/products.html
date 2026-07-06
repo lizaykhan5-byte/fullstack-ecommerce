@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Products | EliteStore</title>
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>Elite<span>Admin</span></h2>
+
+    <a href="dashboard.html">Dashboard</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="add-product.html">Add Product</a>
+    <a href="orders.html">Orders</a>
+    <a href="../index.html">Back to Store</a>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Manage Products</h1>
+      <a href="add-product.html" class="admin-btn">Add Product</a>
+    </header>
+
+    <section class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="adminProducts"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

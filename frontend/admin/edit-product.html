@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product | EliteStore</title>
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <h2>Elite<span>Admin</span></h2>
+
+  <a href="dashboard.html">Dashboard</a>
+  <a href="products.html">Products</a>
+  <a href="add-product.html">Add Product</a>
+  <a href="orders.html">Orders</a>
+  <a href="../index.html">Back to Store</a>
+</aside>
+
+<main class="admin-main">
+
+  <header class="admin-header">
+    <h1>Edit Product</h1>
+  </header>
+
+  <section class="form-card">
+
+    <form id="editProductForm" onsubmit="updateProduct(event)">
+
+      <input type="text" id="name" placeholder="Product Name" required>
+
+      <input type="text" id="brand" placeholder="Brand" required>
+
+      <input type="text" id="category" placeholder="Category" required>
+
+      <input type="number" id="price" placeholder="Price" required>
+
+      <input type="number" id="stock" placeholder="Stock" required>
+
+      <input type="file" id="image" accept="image/*">
+
+      <textarea id="description" rows="5" placeholder="Description"></textarea>
+
+      <button class="admin-btn" type="submit">
+        Update Product
+      </button>
+
+    </form>
+
+  </section>
+
+</main>
+
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

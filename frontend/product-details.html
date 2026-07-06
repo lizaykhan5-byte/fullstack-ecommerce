@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details - EliteStore</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/details.css" />
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main class="details-page">
+
+    <p class="breadcrumb">Home / Products / Wireless Headphones</p>
+
+    <section class="details-box">
+      <div class="image-area">
+        <div class="main-product-img" id="mainImg">🎧</div>
+      </div>
+
+      <div class="info-area">
+        <span class="badge">Best Seller</span>
+        <h1>Wireless Headphones</h1>
+
+        <div class="rating">★★★★☆ <small>245 reviews</small></div>
+
+        <h2>Rs. 4,500</h2>
+        <p class="old-price">Rs. 6,000 <span>25% OFF</span></p>
+
+        <p class="desc">
+          Comfortable wireless headphones with clear sound, deep bass and long battery life.
+        </p>
+
+        <div class="services">
+          <p>✓ In Stock</p>
+          <p>✓ Free Delivery</p>
+          <p>✓ 7 Days Return</p>
+        </div>
+
+        <div class="qty">
+          <button onclick="minusQty()">-</button>
+          <span id="qtyValue">1</span>
+          <button onclick="plusQty()">+</button>
+        </div>
+
+        <div class="buttons">
+          <button onclick="addDetailCart()" class="add">Add to Cart</button>
+          <button class="buy">Buy Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-extra">
+      <div>
+        <h3>Description</h3>
+        <p>
+          This product is designed for daily use with premium comfort, reliable performance,
+          and modern design. Best choice for students, office work and entertainment.
+        </p>
+      </div>
+
+      <div>
+        <h3>Specifications</h3>
+        <ul>
+          <li>Bluetooth 5.0</li>
+          <li>Battery: Up to 20 hours</li>
+          <li>Charging: USB-C</li>
+          <li>Warranty: 6 months</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+<div id="toast"></div>
+  <script src="js/navbar.js"></script>
+  <script src="js/details.js"></script>
+</body>
+</html>

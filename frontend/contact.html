@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | EliteStore</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="contact-page">
+
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We're here to help. Send us your message.</p>
+    </div>
+
+    <div class="contact-layout">
+
+        <div class="contact-info">
+
+            <div class="info-card">
+                <h3>📍 Address</h3>
+                <p>Islamabad, Pakistan</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📞 Phone</h3>
+                <p>+92 300 1234567</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📧 Email</h3>
+                <p>support@elitestore.com</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🕒 Working Hours</h3>
+                <p>Mon - Sat (9:00 AM - 6:00 PM)</p>
+            </div>
+
+        </div>
+
+        <div class="contact-form">
+
+            <h2>Send Message</h2>
+
+            <form onsubmit="sendMessage(event)">
+
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="6" required></textarea>
+                </div>
+
+                <button class="send-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<div id="toast"></div>
+<script src="js/navbar.js"></script>
+<script src="js/contact.js"></script>
+
+</body>
+</html>

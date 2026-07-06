@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | EliteStore</title>
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2>Elite<span>Admin</span></h2>
+
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="products.html">Products</a>
+    <a href="add-product.html">Add Product</a>
+    <a href="orders.html">Orders</a>
+    <a href="../index.html">Back to Store</a>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Dashboard</h1>
+      <button onclick="adminLogout()">Logout</button>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Products</h3>
+        <p id="totalProducts">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Orders</h3>
+        <p id="totalOrders">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Pending Orders</h3>
+        <p id="pendingOrders">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <p id="totalRevenue">Rs. 0</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

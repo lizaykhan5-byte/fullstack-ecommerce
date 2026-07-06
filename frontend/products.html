@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - EliteStore</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/products.css" />
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <main class="products-page">
+
+    <div class="page-head">
+      <div>
+        <p>Home / Products</p>
+        <h1>All Products</h1>
+      </div>
+
+      <select>
+        <option>Sort by</option>
+        <option>Price low to high</option>
+        <option>Price high to low</option>
+        <option>Newest</option>
+      </select>
+    </div>
+
+    <div class="products-layout">
+<aside class="filters">
+
+    <h3>Filters</h3>
+
+    <div class="filter-group">
+
+        <h4>Category</h4>
+
+        <label>
+            <input type="checkbox" class="category-filter" value="Mobiles">
+            Mobiles
+        </label>
+
+        <label>
+            <input type="checkbox" class="category-filter" value="Laptops">
+            Laptops
+        </label>
+
+        <label>
+            <input type="checkbox" class="category-filter" value="Audio">
+            Audio
+        </label>
+
+        <label>
+            <input type="checkbox" class="category-filter" value="Watches">
+            Watches
+        </label>
+
+    </div>
+
+    <div class="filter-group">
+
+        <h4>Price</h4>
+
+        <label>
+            <input type="radio" name="price" class="price-filter" value="under3000">
+            Under Rs. 3000
+        </label>
+
+        <label>
+            <input type="radio" name="price" class="price-filter" value="3000to6000">
+            Rs. 3000 - 6000
+        </label>
+
+        <label>
+            <input type="radio" name="price" class="price-filter" value="above6000">
+            Above Rs. 6000
+        </label>
+
+    </div>
+
+</aside>
+      
+      <section class="products-list" id="productsList"></section>
+
+    </div>
+
+  </main>
+<div id="toast"></div>
+  <script src="js/navbar.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
