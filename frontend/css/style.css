@@ -422,3 +422,77 @@ footer p {
 .back-home:hover {
   color: #f59e0b;
 }
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+input,
+textarea {
+    user-select: text;
+    -webkit-user-select: text;
+}
+.thankyou-page {
+  width: 88%;
+  max-width: 700px;
+  margin: 60px auto;
+}
+
+.thankyou-card {
+  background: white;
+  padding: 45px 30px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thankyou-card h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.thankyou-card p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.thankyou-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.thankyou-buttons a {
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #f59e0b;
+  color: #111827;
+  font-weight: 700;
+}
+
+.thankyou-buttons .dark-btn {
+  background: #111827;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .thankyou-buttons {
+    flex-direction: column;
+  }
+}

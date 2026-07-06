@@ -1,3 +1,18 @@
+function showToast(message) {
+  const toast = document.getElementById("toast");
+
+  if (!toast) {
+    alert(message);
+    return;
+  }
+
+  toast.innerText = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
 const CART_API = "http://localhost:5000/api/cart";
 const ORDER_API = "http://localhost:5000/api/orders";
 
@@ -98,7 +113,7 @@ async function placeOrder(event) {
     showToast("Order placed successfully");
 
     setTimeout(() => {
-      window.location.href = "orders.html";
+      window.location.href = "thankyou.html";
     }, 1000);
 
   } catch (error) {
