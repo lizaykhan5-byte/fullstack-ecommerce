@@ -1,19 +1,64 @@
 const express = require("express");
+
 const router = express.Router();
 
 const {
   createOrder,
   getOrders,
-  updateOrderStatus,getAllOrdersForAdmin,
+  getOrderById,
+  updateOrderStatus,
+  updateDeliveryLocation,
+  getAllOrdersForAdmin,
 } = require("../controllers/orderController");
 
-// Place Order
-router.post("/", createOrder);
-router.get("/admin/all", getAllOrdersForAdmin);
-// Get Orders of Logged-in User
-router.get("/:userId", getOrders);
+const {
+  protect,
+  adminOnly,
+} = require("../middleware/authMiddleware");
 
-// Update Order Status (Admin)
-router.put("/:id", updateOrderStatus);
+// ========================================
+// CUSTOMER ROUTES
+// ========================================
+
+// Place new order
+router.post("/", protect, createOrder);
+
+// Get logged-in user's orders
+router.get("/", protect, getOrders);
+
+// ========================================
+// ADMIN ROUTES
+// ========================================
+
+// Get all orders - keep BEFORE /:id
+router.get(
+  "/admin/all",
+  protect,
+  adminOnly,
+  getAllOrdersForAdmin
+);
+// Update delivery map location - ADMIN
+router.put(
+  "/:id/location",
+  protect,
+  adminOnly,
+  updateDeliveryLocation
+);
+// ========================================
+// SINGLE ORDER TRACKING
+// ========================================
+
+router.get("/:id", protect, getOrderById);
+
+// ========================================
+// UPDATE ORDER STATUS - ADMIN
+// ========================================
+
+router.put(
+  "/:id",
+  protect,
+  adminOnly,
+  updateOrderStatus
+);
 
 module.exports = router;

@@ -88,3 +88,32 @@
     flex-direction: column;
   }
 }
+.order-details-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.track-order-btn {
+  display: inline-block;
+  padding: 11px 22px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.track-order-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.88;
+}

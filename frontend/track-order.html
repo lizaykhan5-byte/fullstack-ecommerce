@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Track Order | Elite Store</title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+  <link
+    rel="stylesheet"
+    href="css/track-order.css"
+  />
+</head>
+
+<body>
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+  <header class="tracking-header">
+
+    <a
+      href="index.html"
+      class="tracking-logo"
+    >
+      ELITE STORE
+    </a>
+
+    <nav class="tracking-nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="products.html">
+        Products
+      </a>
+
+      <a href="orders.html">
+        My Orders
+      </a>
+
+      <a href="cart.html">
+        Cart
+      </a>
+
+      <a href="profile.html">
+        Profile
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================
+       PAGE
+  ====================================== -->
+  <main class="tracking-page">
+
+    <!-- Back button -->
+    <div class="tracking-back">
+
+      <a href="orders.html">
+        ← Back to My Orders
+      </a>
+
+    </div>
+
+
+    <!-- ===================================
+         LOADING
+    ==================================== -->
+    <div
+      id="trackingLoading"
+      class="tracking-loading"
+    >
+      <div class="tracking-spinner"></div>
+
+      <p>
+        Loading your order...
+      </p>
+    </div>
+
+
+    <!-- ===================================
+         ERROR
+    ==================================== -->
+    <div
+      id="trackingError"
+      class="tracking-error hidden"
+    >
+
+      <h2>
+        Unable to Load Order
+      </h2>
+
+      <p id="trackingErrorMessage">
+        Something went wrong.
+      </p>
+
+      <a
+        href="orders.html"
+        class="tracking-primary-btn"
+      >
+        View My Orders
+      </a>
+
+    </div>
+
+
+    <!-- ===================================
+         ORDER CONTENT
+    ==================================== -->
+    <section
+      id="trackingContent"
+      class="tracking-content hidden"
+    >
+
+
+      <!-- =================================
+           TOP ORDER CARD
+      ================================== -->
+      <div class="tracking-hero-card">
+
+        <div>
+
+          <p class="tracking-label">
+            ORDER NUMBER
+          </p>
+
+          <h1 id="orderNumber">
+            ELT-000000
+          </h1>
+
+          <p
+            id="orderCreatedDate"
+            class="tracking-muted"
+          >
+            Placed on —
+          </p>
+
+        </div>
+
+
+        <div class="tracking-current-status">
+
+          <span>
+            Current Status
+          </span>
+
+          <strong id="currentStatus">
+            Order Placed
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================
+           DELIVERY INFO
+      ================================== -->
+      <div class="tracking-summary-grid">
+
+
+        <div class="tracking-summary-card">
+
+          <span class="summary-icon">
+            🚚
+          </span>
+
+          <div>
+
+            <p>
+              Estimated Delivery
+            </p>
+
+            <strong id="estimatedDelivery">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="tracking-summary-card">
+
+          <span class="summary-icon">
+            💳
+          </span>
+
+          <div>
+
+            <p>
+              Payment Method
+            </p>
+
+            <strong id="paymentMethod">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="tracking-summary-card">
+
+          <span class="summary-icon">
+            ✓
+          </span>
+
+          <div>
+
+            <p>
+              Payment Status
+            </p>
+
+            <strong id="paymentStatus">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================
+           TRACKING TIMELINE
+      ================================== -->
+      <section class="tracking-section">
+
+        <div class="tracking-section-heading">
+
+          <div>
+
+            <p class="tracking-label">
+              DELIVERY PROGRESS
+            </p>
+
+            <h2>
+              Track Your Order
+            </h2>
+
+          </div>
+
+          <span
+            id="trackingLastUpdated"
+            class="tracking-muted"
+          >
+            Last updated —
+          </span>
+
+        </div>
+
+
+        <div
+          id="trackingTimeline"
+          class="tracking-timeline"
+        >
+
+          <!-- ORDER PLACED -->
+          <div
+            class="tracking-step"
+            data-status="Order Placed"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Order Placed
+              </h3>
+
+              <p>
+                Your order has been received.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- CONFIRMED -->
+          <div
+            class="tracking-step"
+            data-status="Confirmed"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Confirmed
+              </h3>
+
+              <p>
+                Your order has been confirmed.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- PROCESSING -->
+          <div
+            class="tracking-step"
+            data-status="Processing"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Processing
+              </h3>
+
+              <p>
+                Your order is being prepared.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SHIPPED -->
+          <div
+            class="tracking-step"
+            data-status="Shipped"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Shipped
+              </h3>
+
+              <p>
+                Your package has left our facility.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUT FOR DELIVERY -->
+          <div
+            class="tracking-step"
+            data-status="Out for Delivery"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Out for Delivery
+              </h3>
+
+              <p>
+                Your package is on the way.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+
+          <!-- DELIVERED -->
+          <div
+            class="tracking-step"
+            data-status="Delivered"
+          >
+
+            <div class="tracking-step-marker">
+              <span>✓</span>
+            </div>
+
+            <div class="tracking-step-content">
+
+              <h3>
+                Delivered
+              </h3>
+
+              <p>
+                Your order has been delivered.
+              </p>
+
+              <small
+                class="tracking-step-time"
+              ></small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================
+           MAP PLACEHOLDER
+      ================================== -->
+      <section class="tracking-section">
+
+        <div class="tracking-section-heading">
+
+          <div>
+
+            <p class="tracking-label">
+              DELIVERY LOCATION
+            </p>
+
+            <h2>
+              Package Location
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="deliveryMap"
+          class="delivery-map-placeholder"
+        >
+
+          <div>
+
+            <span class="map-placeholder-icon">
+              📍
+            </span>
+
+            <h3>
+              Delivery Map
+            </h3>
+
+            <p>
+              Live delivery location will appear here.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================
+           SHIPPING ADDRESS
+      ================================== -->
+      <section class="tracking-section">
+
+        <div class="tracking-section-heading">
+
+          <div>
+
+            <p class="tracking-label">
+              DESTINATION
+            </p>
+
+            <h2>
+              Shipping Address
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="shipping-address-card">
+
+          <strong id="shippingName">
+            —
+          </strong>
+
+          <p id="shippingAddress">
+            —
+          </p>
+
+          <p id="shippingPhone">
+            —
+          </p>
+
+          <p id="shippingEmail">
+            —
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================
+           ORDER ITEMS
+      ================================== -->
+      <section class="tracking-section">
+
+        <div class="tracking-section-heading">
+
+          <div>
+
+            <p class="tracking-label">
+              ORDER SUMMARY
+            </p>
+
+            <h2>
+              Items
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="trackingOrderItems"
+          class="tracking-order-items"
+        >
+        </div>
+
+
+        <div class="tracking-price-box">
+
+          <div>
+
+            <span>
+              Subtotal
+            </span>
+
+            <strong id="trackingSubtotal">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Shipping
+            </span>
+
+            <strong id="trackingShipping">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Discount
+            </span>
+
+            <strong id="trackingDiscount">
+              Rs. 0
+            </strong>
+
+          </div>
+
+
+          <div class="tracking-grand-total">
+
+            <span>
+              Total
+            </span>
+
+            <strong id="trackingTotal">
+              Rs. 0
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================
+           HELP
+      ================================== -->
+      <section class="tracking-help">
+
+        <div>
+
+          <h2>
+            Need help with your order?
+          </h2>
+
+          <p>
+            Our support team is here to help.
+          </p>
+
+        </div>
+
+        <a
+          href="contact.html"
+          class="tracking-secondary-btn"
+        >
+          Contact Us
+        </a>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================
+       TOAST
+  ====================================== -->
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+
+<script src="js/track-order.js"></script>
+  
+</body>
+</html>

@@ -23,22 +23,189 @@
       <h1>Manage Orders</h1>
       <button onclick="adminLogout()">Logout</button>
     </header>
+<section class="table-card">
 
-    <section class="table-card">
-      <table>
-        <thead>
-          <tr>
-            <th>Customer</th>
-            <th>Products</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Update</th>
-          </tr>
-        </thead>
+  <div class="admin-orders-heading">
 
-        <tbody id="adminOrders"></tbody>
-      </table>
-    </section>
+    <div>
+      <h2>Customer Orders</h2>
+      <p>
+        Manage order status, payment information
+        and delivery tracking.
+      </p>
+    </div>
+
+    <button
+      class="refresh-orders-btn"
+      onclick="loadAdminOrders()"
+    >
+      Refresh Orders
+    </button>
+
+  </div>
+
+
+  <div class="admin-orders-table-wrapper">
+
+    <table class="admin-orders-table">
+
+      <thead>
+
+        <tr>
+
+          <th>Order</th>
+
+          <th>Customer</th>
+
+          <th>Products</th>
+
+          <th>Total</th>
+
+          <th>Payment</th>
+
+          <th>Status</th>
+
+          <th>Delivery</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="adminOrders">
+
+        <tr>
+
+          <td colspan="7">
+            Loading orders...
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================
+     DELIVERY LOCATION MODAL
+====================================== -->
+<div
+  id="locationModal"
+  class="admin-modal"
+>
+
+  <div class="admin-modal-content">
+
+    <button
+      class="admin-modal-close"
+      onclick="closeLocationModal()"
+      type="button"
+    >
+      ×
+    </button>
+
+
+    <p class="admin-modal-label">
+      DELIVERY TRACKING
+    </p>
+
+    <h2>
+      Update Package Location
+    </h2>
+
+    <p class="admin-modal-description">
+      Enter the current delivery coordinates.
+      The customer will see this location on
+      the Track Order map.
+    </p>
+
+
+    <input
+      type="hidden"
+      id="locationOrderId"
+    />
+
+
+    <div class="admin-location-grid">
+
+      <div class="admin-field">
+
+        <label for="deliveryLatitude">
+          Latitude
+        </label>
+
+        <input
+          id="deliveryLatitude"
+          type="number"
+          step="any"
+          placeholder="33.6844"
+        />
+
+      </div>
+
+
+      <div class="admin-field">
+
+        <label for="deliveryLongitude">
+          Longitude
+        </label>
+
+        <input
+          id="deliveryLongitude"
+          type="number"
+          step="any"
+          placeholder="73.0479"
+        />
+
+      </div>
+
+    </div>
+
+
+    <div class="admin-field">
+
+      <label for="deliveryAddress">
+        Current Location
+      </label>
+
+      <input
+        id="deliveryAddress"
+        type="text"
+        placeholder="Islamabad, Pakistan"
+      />
+
+    </div>
+
+
+    <div class="admin-modal-actions">
+
+      <button
+        type="button"
+        class="cancel-location-btn"
+        onclick="closeLocationModal()"
+      >
+        Cancel
+      </button>
+
+
+      <button
+        type="button"
+        class="save-location-btn"
+        onclick="saveDeliveryLocation()"
+      >
+        Update Location
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+    
   </main>
 
   <script src="../js/admin.js"></script>
